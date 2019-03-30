@@ -83,7 +83,7 @@ $ gulp release // => X.0.0
 
 The build tool also defines a variable named `process.env.NODE_ENV` in your scripts. It will be set to `development` unless you use the `--production` option.
 
-**Example:** `./app/background.js`
+**Example:** `./app/background.ts`
 
 ```javascript
 if(process.env.NODE_ENV === 'development'){
