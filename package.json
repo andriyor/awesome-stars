@@ -1,0 +1,16 @@
+{
+  "name": "awesome-stars",
+  "version": "4.0.0",
+  "description": "A Chrome extension that reveals star count of repositories on awesome list",
+  "scripts": {
+    "build": "webextension-toolbox build",
+    "dev": "webextension-toolbox dev"
+  },
+  "devDependencies": {
+    "webextension-toolbox": "^3.0.0"
+  },
+  "license": "MIT",
+  "repository": {
+    "url": "https://github.com/henry40408/awesome-stars.git"
+  }
+}

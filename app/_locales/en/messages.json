@@ -1,0 +1,14 @@
+{
+  "appName": {
+    "message": "Awesome Stars",
+    "description": "The name of the application"
+  },
+  "appShortName": {
+    "message": "awesomestars",
+    "description": "The short_name (maximum of 12 characters recommended) is a short version of the app's name."
+  },
+  "appDescription": {
+    "message": "A Chrome extension that reveals star count of repositories on awesome list.",
+    "description": "The description of the application"
+  }
+}
