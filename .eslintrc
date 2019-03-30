@@ -1,11 +1,7 @@
 {
   "extends": ["standard", "standard-react"],
   "env": {
-    "browser": true,
-    "node": true
-  },
-  "globals": {
-    "chrome": true
-  },
-  "parser": "babel-eslint"
+    "node": true,
+    "webextensions": true
+  }
 }
