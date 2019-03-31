@@ -13,5 +13,10 @@
     "scripts": [
       "scripts/background.js"
     ]
-  }
+  },
+  "permissions": [
+    "contextMenus",
+    "tabs"
+  ],
+  "page_action": {}
 }
