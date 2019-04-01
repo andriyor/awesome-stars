@@ -1,7 +1,7 @@
 import * as React from "react";
 import { FunctionComponent } from "react";
 import { createGlobalStyle } from "styled-components";
-import { StyledBadge } from "./styled";
+import { StyledBadge, StyledStar } from "./styled";
 
 type BadgePropTypes = { stargazerCount?: number };
 
@@ -14,7 +14,10 @@ const numberFormat = new Intl.NumberFormat("en-US");
 const Badge: FunctionComponent<BadgePropTypes> = ({ stargazerCount = 0 }) => (
     <React.Fragment>
         <GlobalStyle />
-        <StyledBadge number={stargazerCount}>{numberFormat.format(stargazerCount)}</StyledBadge>
+        <StyledBadge stargazerCount={stargazerCount}>
+            <StyledStar stargazerCount={stargazerCount} />
+            <span>{numberFormat.format(stargazerCount)}</span>
+        </StyledBadge>
     </React.Fragment>
 );
 
