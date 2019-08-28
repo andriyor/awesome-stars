@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Badge 1`] = `
+<Fragment>
+  <GlobalStyleComponent />
+  <styled.span
+    stargazerCount={0}
+  >
+    <Styled(Star)
+      stargazerCount={0}
+    />
+    <span>
+      0
+    </span>
+  </styled.span>
+</Fragment>
+`;
+
+exports[`Badge with stargazer count 1`] = `
+<Fragment>
+  <GlobalStyleComponent />
+  <styled.span
+    stargazerCount={100}
+  >
+    <Styled(Star)
+      stargazerCount={100}
+    />
+    <span>
+      100
+    </span>
+  </styled.span>
+</Fragment>
+`;
