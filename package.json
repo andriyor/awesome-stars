@@ -9,7 +9,8 @@
     "lint": "eslint app/**/*.ts",
     "precommit": "npm run prettier && npm run lint",
     "prettier": "prettier --write .storybook/**/*.js app/**/*.ts stories/**/*.ts stories/**/*.tsx",
-    "storybook": "start-storybook -p 6006"
+    "storybook": "start-storybook -p 6006",
+    "test": "jest"
   },
   "devDependencies": {
     "@babel/core": "^7.4.0",

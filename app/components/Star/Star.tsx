@@ -2,9 +2,9 @@ import * as React from "react";
 import { FunctionComponent } from "react";
 import { numberToColor } from "../../helpers/numberToColor";
 
-type StarPropTypes = {
+interface StarPropTypes {
     stargazerCount?: number;
-};
+}
 
 const Star: FunctionComponent<StarPropTypes> = props => {
     const { stargazerCount = 0 } = props;
