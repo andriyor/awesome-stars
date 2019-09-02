@@ -1,10 +1,11 @@
 import * as React from "react";
-import { FunctionComponent } from "react";
+import { FunctionComponent, ReactElement } from "react";
 import { createGlobalStyle } from "styled-components";
 import { StyledBadge, StyledStar } from "./styled";
 
 interface BadgePropTypes {
-    stargazerCount?: number;
+    hasError?: boolean;
+    stargazersCount?: number;
 }
 
 const GlobalStyle = createGlobalStyle`
@@ -13,14 +14,15 @@ const GlobalStyle = createGlobalStyle`
 
 const numberFormat = new Intl.NumberFormat("en-US");
 
-const Badge: FunctionComponent<BadgePropTypes> = (props) => {
-    const { stargazerCount = 0 } = props;
+const Badge: FunctionComponent<BadgePropTypes> = (props): ReactElement => {
+    const { hasError = false, stargazersCount = 0 } = props;
+    const content = hasError ? "error" : numberFormat.format(stargazersCount);
     return (
         <React.Fragment>
             <GlobalStyle/>
-            <StyledBadge stargazerCount={stargazerCount}>
-                <StyledStar stargazerCount={stargazerCount}/>
-                <span>{numberFormat.format(stargazerCount)}</span>
+            <StyledBadge hasError={hasError} stargazersCount={stargazersCount}>
+                <StyledStar stargazersCount={stargazersCount}/>
+                <span data-testid="badge-text">{content}</span>
             </StyledBadge>
         </React.Fragment>
     );

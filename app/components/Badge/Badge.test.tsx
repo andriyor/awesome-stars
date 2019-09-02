@@ -1,13 +1,19 @@
 import * as React from "react";
+import { render } from "@testing-library/react";
+import "@testing-library/jest-dom/extend-expect";
 import Badge from "./Badge";
-import { shallow } from "enzyme";
 
 test("Badge", () => {
-    const badge = shallow(<Badge/>);
-    expect(badge).toMatchSnapshot();
+    const { getByTestId } = render(<Badge/>);
+    expect(getByTestId("badge-text")).toHaveTextContent("0");
 });
 
-test("Badge with stargazer count", () => {
-    const badge = shallow(<Badge stargazerCount={100}/>);
-    expect(badge).toMatchSnapshot();
+test("Badge with stargazers count", () => {
+    const { getByTestId } = render(<Badge stargazersCount={100}/>);
+    expect(getByTestId("badge-text")).toHaveTextContent("100");
+});
+
+test("Badge with error", () => {
+    const { getByTestId } = render(<Badge hasError/>);
+    expect(getByTestId("badge-text")).toHaveTextContent("error");
 });

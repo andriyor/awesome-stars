@@ -1,6 +1,13 @@
-import { BLUE, ORANGE, WHITE, YELLOW } from "../theme";
+import { BLUE, ORANGE, RED, WHITE, YELLOW } from "../theme";
 
-export const numberToColor = (number: number = 0): string => {
+export const numberToColor = (
+    number: number = 0,
+    hasError: boolean = false
+): string => {
+    if (hasError) {
+        return RED;
+    }
+
     switch (true) {
         case number >= 10000:
             return ORANGE;
