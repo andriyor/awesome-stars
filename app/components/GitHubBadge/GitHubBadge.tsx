@@ -19,21 +19,31 @@ const GitHubBadge: FunctionComponent<GitHubBadgePropTypes> = (props): ReactEleme
     const [totalCount, setTotalCount] = useState(0);
     const [hasError, setHasError] = useState(false);
 
+    let mounted = true;
+
     async function getStargazersCountAsync(): Promise<void> {
         setHasError(false);
         try {
-            const res = await axios(`https://api.github.com/repos/${owner}/${name}`);
+            const url = `https://api.github.com/repos/${owner}/${name}`;
+            const res = await axios(url);
             const totalCount = lodash.get(res.data, "stargazers_count", 0);
-            setTotalCount(totalCount);
+            if (mounted) {
+                setTotalCount(totalCount);
+            }
         } catch (e) {
             console.error(e);
-            setTotalCount(0);
-            setHasError(true);
+            if (mounted) {
+                setTotalCount(0);
+                setHasError(true);
+            }
         }
     }
 
     useEffect(() => {
         getStargazersCountAsync();
+        return () => {
+            mounted = false;
+        };
     }, [nameAndOwner]);
 
     return <Badge hasError={hasError} stargazersCount={totalCount}/>;
